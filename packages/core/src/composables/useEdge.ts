@@ -22,7 +22,7 @@ export default function useEdge<T extends GraphEdge = GraphEdge>(
 
   const edgeEl = computed(() => unref(edgeRef) ?? document.querySelector(`[data-id="${edgeId.value}"]`))
 
-  const edge = computed(() => findEdge<T>(edgeId.value))
+  const edge = computed(() => findEdge<T>(edgeId.value)!)
 
   // todo: throw in computed instead
   watch(
