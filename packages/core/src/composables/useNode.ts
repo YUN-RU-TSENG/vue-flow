@@ -32,12 +32,12 @@ export default function useNode<T extends GraphNode = GraphNode>(
     [() => node.value?.id, nodeId],
     ([nextNode, nextId]) => {
       if (!nextId || nextId === '') {
-        throw new VueFlowError('useNode', `No node id provided and no injection could be found!`)
+        throw new VueFlowError(`No node id provided and no injection could be found!`, 'useNode')
       }
 
       nextTick(() => {
         if (!nextNode) {
-          throw new VueFlowError('useNode', `Node with id ${nodeId.value} not found!`)
+          throw new VueFlowError(`Node with id ${nodeId.value} not found!`, 'useNode')
         }
       })
     },
